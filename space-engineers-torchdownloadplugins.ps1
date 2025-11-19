@@ -17,7 +17,8 @@ $ProgressPreference='SilentlyContinue'
 # Download AMPUtilities and MayhemSync directly
 $directDownloads = @(
     @{ Name = "AMPUtilities.zip"; Url = "https://cdn.mayhem-gaming.com/space-engineers/plugins/AMPUtilities.zip" },
-    @{ Name = "MayhemSync.zip"; Url = "https://cdn.mayhem-gaming.com/space-engineers/plugins/MayhemSync.zip" }
+    @{ Name = "MayhemSync.zip"; Url = "https://cdn.mayhem-gaming.com/space-engineers/plugins/MayhemSync.zip" },
+    @{ Name = "AMPRestartPatch.zip"; Url = "https://cdn.mayhem-gaming.com/space-engineers/plugins/AMPRestartPatch.zip" }
 )
 
 foreach ($download in $directDownloads) {
@@ -60,17 +61,9 @@ foreach ($guid in $guids) {
     $pluginName = [System.IO.Path]::GetFileNameWithoutExtension($filename)
     $targetPath = Join-Path $pluginsDir $filename
 
-    if ((Test-Path $targetPath) -and $overwrite -ne "true" -and $cleanGuid -ne "5c14d8ea-7032-4db1-a2e6-9134ef6cb8d9") {
+    if ((Test-Path $targetPath) -and $overwrite -ne "true") {
         Write-Output "Existing plugin $pluginName skipped"
         continue
-    } elseif ($cleanGuid -eq "5c14d8ea-7032-4db1-a2e6-9134ef6cb8d9" -or $cleanGuid -eq "your-guid-here") {
-        Write-Output "Downloading AMPUtilities.zip"
-        $targetPath = Join-Path $pluginsDir "AMPUtilities.zip"
-        Invoke-WebRequest -Uri "https://cdn.mayhem-gaming.com/space-engineers/plugins/AMPUtilities.zip" -OutFile $targetPath -UseBasicParsing
-    } elseif ($cleanGuid -eq "your-guid-here") {
-        Write-Output "Downloading MayhemSync.zip"
-        $targetPath = Join-Path $pluginsDir "MayhemSync.zip"
-        Invoke-WebRequest -Uri "https://cdn.mayhem-gaming.com/space-engineers/plugins/MayhemSync.zip" -OutFile $targetPath -UseBasicParsing
     }
 
     # Clean any leftovers from previous loop

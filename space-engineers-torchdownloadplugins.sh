@@ -16,6 +16,7 @@ echo "Downloading plugins"
 directDownloads=(
     "AMPUtilities.zip:https://cdn.mayhem-gaming.com/space-engineers/plugins/AMPUtilities.zip"
     "MayhemSync.zip:https://cdn.mayhem-gaming.com/space-engineers/plugins/MayhemSync.zip"
+    "AMPRestartPatch.zip:https://cdn.mayhem-gaming.com/space-engineers/plugins/AMPRestartPatch.zip"
 )
 
 for download in "${directDownloads[@]}"; do
