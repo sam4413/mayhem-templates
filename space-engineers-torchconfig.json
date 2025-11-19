@@ -3879,7 +3879,7 @@
         "Description": "Enter the address for the websocket network.",
         "Keywords": "address,wssaddress,sync,MayhemSync",
         "FieldName": "WSSAddress",
-        "InputType": "password",
+        "InputType": "text",
         "IsFlagArgument": false,
         "ParamFieldName": "/MayhemSyncConfig/WSSAddress",
         "IncludeInCommandLine": false,
