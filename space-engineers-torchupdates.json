@@ -125,7 +125,7 @@
         "UpdateStageName": "Winescript Download",
         "UpdateSourcePlatform": "Linux",
         "UpdateSource": "FetchURL",
-        "UpdateSourceData": "https://raw.githubusercontent.com/CubeCoders/AMPTemplates/main/space-engineers-torchwinescript.sh",
+        "UpdateSourceData": "https://raw.githubusercontent.com/sam4413/mayhem-templates/refs/heads/main/space-engineers-torchwinescript.sh",
         "UpdateSourceArgs": "winescript.sh",
         "UpdateSourceTarget": "{{$FullInstanceDir}}",
         "OverwriteExistingFiles": true,
