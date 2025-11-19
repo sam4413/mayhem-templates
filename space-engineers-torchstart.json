@@ -15,7 +15,7 @@
         "UpdateSourcePlatform": "Linux",
         "UpdateSource": "Executable",
         "UpdateSourceData": "/bin/bash",
-        "UpdateSourceArgs": "./downloadplugins.sh {{UpdatePlugins}} 5c14d8ea-7032-4db1-a2e6-9134ef6cb8d9 {{plugins}}",
+        "UpdateSourceArgs": "./downloadplugins.sh {{UpdatePlugins}} {{plugins}}",
         "UpdateSourceConditionSetting": "TorchConfig_LocalPlugins",
         "UpdateSourceConditionValue": "false",
         "SkipOnFailure": true
@@ -36,7 +36,7 @@
         "UpdateSourcePlatform": "Windows",
         "UpdateSource": "Executable",
         "UpdateSourceData": "powershell.exe",
-        "UpdateSourceArgs": "-NoProfile -ExecutionPolicy Bypass -File \"downloadplugins.ps1\" \"{{UpdatePlugins}}\" \"5c14d8ea-7032-4db1-a2e6-9134ef6cb8d9 {{plugins}}\"",
+        "UpdateSourceArgs": "-NoProfile -ExecutionPolicy Bypass -File \"downloadplugins.ps1\" \"{{UpdatePlugins}}\" {{plugins}}\"",
         "UpdateSourceConditionSetting": "TorchConfig_LocalPlugins",
         "UpdateSourceConditionValue": "false",
         "SkipOnFailure": true

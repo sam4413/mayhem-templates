@@ -16,5 +16,11 @@
         "AutoMap": true,
         "Importable": true,
         "ConfigType": "xml"
+    },
+    {
+        "ConfigFile": "servers/MayhemSyncConfig.cfg",
+        "AutoMap": true,
+        "Importable": true,
+        "ConfigType": "xml"
     }
 ]

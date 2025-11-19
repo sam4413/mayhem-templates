@@ -14,6 +14,29 @@ Write-Output "Downloading plugins"
 $ProgressPreference='SilentlyContinue'
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 
+# Download AMPUtilities and MayhemSync directly
+$directDownloads = @(
+    @{ Name = "AMPUtilities.zip"; Url = "https://cdn.mayhem-gaming.com/space-engineers/plugins/AMPUtilities.zip" },
+    @{ Name = "MayhemSync.zip"; Url = "https://cdn.mayhem-gaming.com/space-engineers/plugins/MayhemSync.zip" }
+)
+
+foreach ($download in $directDownloads) {
+    $targetPath = Join-Path $pluginsDir $download.Name
+    
+    if ((Test-Path $targetPath) -and $overwrite -ne "true") {
+        Write-Output "Existing plugin $($download.Name) skipped"
+        continue
+    }
+    
+    try {
+        Write-Output "Downloading $($download.Name)"
+        Invoke-WebRequest -Uri $download.Url -OutFile $targetPath -UseBasicParsing
+        Write-Output "Plugin $($download.Name) downloaded"
+    } catch {
+        Write-Output "Failed to download $($download.Name)"
+    }
+}
+
 # Loop through each provided GUID
 foreach ($guid in $guids) {
     $cleanGuid = $guid -replace '[{}\s]', ''
@@ -40,6 +63,14 @@ foreach ($guid in $guids) {
     if ((Test-Path $targetPath) -and $overwrite -ne "true" -and $cleanGuid -ne "5c14d8ea-7032-4db1-a2e6-9134ef6cb8d9") {
         Write-Output "Existing plugin $pluginName skipped"
         continue
+    } elseif ($cleanGuid -eq "5c14d8ea-7032-4db1-a2e6-9134ef6cb8d9" -or $cleanGuid -eq "your-guid-here") {
+        Write-Output "Downloading AMPUtilities.zip"
+        $targetPath = Join-Path $pluginsDir "AMPUtilities.zip"
+        Invoke-WebRequest -Uri "https://cdn.mayhem-gaming.com/space-engineers/plugins/AMPUtilities.zip" -OutFile $targetPath -UseBasicParsing
+    } elseif ($cleanGuid -eq "your-guid-here") {
+        Write-Output "Downloading MayhemSync.zip"
+        $targetPath = Join-Path $pluginsDir "MayhemSync.zip"
+        Invoke-WebRequest -Uri "https://cdn.mayhem-gaming.com/space-engineers/plugins/MayhemSync.zip" -OutFile $targetPath -UseBasicParsing
     }
 
     # Clean any leftovers from previous loop

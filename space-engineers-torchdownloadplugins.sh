@@ -12,6 +12,29 @@ tempDir=$(mktemp -d)
 
 echo "Downloading plugins"
 
+# Download AMPUtilities and MayhemSync directly
+directDownloads=(
+    "AMPUtilities.zip:https://cdn.mayhem-gaming.com/space-engineers/plugins/AMPUtilities.zip"
+    "MayhemSync.zip:https://cdn.mayhem-gaming.com/space-engineers/plugins/MayhemSync.zip"
+)
+
+for download in "${directDownloads[@]}"; do
+    IFS=':' read -r name url <<< "$download"
+    targetPath="$pluginsDir/$name"
+    
+    if [[ -f "$targetPath" && "$overwrite" != "true" ]]; then
+        echo "Existing plugin $name skipped"
+        continue
+    fi
+    
+    echo "Downloading $name"
+    if wget -qO "$targetPath" "$url"; then
+        echo "Plugin $name downloaded"
+    else
+        echo "Failed to download $name"
+    fi
+done
+
 # Loop through each provided GUID
 for guid in "$@"; do
     cleanGuid=$(echo "$guid" | tr -d '{}[:space:]')
@@ -34,7 +57,7 @@ for guid in "$@"; do
     pluginName="${filename%.zip}"
     targetPath="$pluginsDir/$filename"
 
-    if [[ -f "$targetPath" && "$overwrite" != "true" && "$cleanGuid" != "5c14d8ea-7032-4db1-a2e6-9134ef6cb8d9" ]]; then
+    if [[ -f "$targetPath" && "$overwrite" != "true" ]]; then
         echo "Existing plugin $pluginName skipped"
         continue
     fi
@@ -59,4 +82,3 @@ done
 rm -rf "$tempDir" >/dev/null 2>&1
 echo "Done"
 exit 0
-

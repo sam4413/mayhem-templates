@@ -483,8 +483,8 @@
         "IsFlagArgument": false,
         "ParamFieldName": "/MyConfigDedicated/ServerName",
         "IncludeInCommandLine": false,
-        "DefaultValue": "AMP Powered Server",
-        "Placeholder": "AMP Powered Server",
+        "DefaultValue": "A Mayhem Gaming Network powered server.",
+        "Placeholder": "A Mayhem Gaming Network powered server.",
         "EnumValues": {}
     },
     {
@@ -621,8 +621,8 @@
         "IsFlagArgument": false,
         "ParamFieldName": "/MyConfigDedicated/ServerDescription",
         "IncludeInCommandLine": false,
-        "DefaultValue": "My AMP Powered Space Engineers Server",
-        "Placeholder": "My AMP Powered Space Engineers Server",
+        "DefaultValue": "A Mayhem Industries Gaming Network server.",
+        "Placeholder": "A Mayhem Industries Gaming Network server.",
         "EnumValues": {}
     },
     {
@@ -752,8 +752,8 @@
         "IsFlagArgument": false,
         "ParamFieldName": "/MyConfigDedicated/MessageOfTheDay",
         "IncludeInCommandLine": false,
-        "DefaultValue": "Welcome to my Space Engineers Server, powered by AMP!",
-        "Placeholder": "Welcome to my Space Engineers Server, powered by AMP!",
+        "DefaultValue": "Welcome to Mayhem Industries.",
+        "Placeholder": "Welcome to Mayhem Industries.",
         "EnumValues": {}
     },
     {
@@ -768,7 +768,7 @@
         "ParamFieldName": "/MyConfigDedicated/MessageOfTheDayUrl",
         "IncludeInCommandLine": false,
         "DefaultValue": "",
-        "Placeholder": "https://cubecoders.com/AMP",
+        "Placeholder": "https://mayhem-gaming.com",
         "EnumValues": {}
     },
     {
@@ -3840,5 +3840,68 @@
         "EnumValues": {},
         "DefaultValue": "public",
         "Placeholder": "public"
-    }
+    },
+
+    {
+        "DisplayName": "Security Token",
+        "Category": "Space Engineers:stadia_controller",
+        "Subcategory": "Mayhem Sync:linked_services:1",
+        "Description": "Enter the security token for Mayhem Sync.",
+        "Keywords": "token,security,password,hash,MayhemSyncToken,sync,MayhemSync",
+        "FieldName": "WSSToken",
+        "InputType": "password",
+        "IsFlagArgument": false,
+        "ParamFieldName": "/MayhemSyncConfig/WSSToken",
+        "IncludeInCommandLine": false,
+        "DefaultValue": "",
+        "EnumValues": {}
+    },
+
+    {
+        "DisplayName": "Node Identifer",
+        "Category": "Space Engineers:stadia_controller",
+        "Subcategory": "Mayhem Sync:linked_services:1",
+        "Description": "Enter the name of the server that Mayhem Sync should call this as.",
+        "Keywords": "node,identifer,sync,MayhemSync",
+        "FieldName": "WSSIdentifier",
+        "InputType": "text",
+        "IsFlagArgument": false,
+        "ParamFieldName": "/MayhemSyncConfig/WSSIdentifier",
+        "IncludeInCommandLine": false,
+        "DefaultValue": "se.identifer",
+        "EnumValues": {}
+    },
+
+    {
+        "DisplayName": "Address",
+        "Category": "Space Engineers:stadia_controller",
+        "Subcategory": "Mayhem Sync:linked_services:1",
+        "Description": "Enter the security token for Mayhem Sync.",
+        "Keywords": "address,wssaddress,sync,MayhemSync",
+        "FieldName": "WSSToken",
+        "InputType": "password",
+        "IsFlagArgument": false,
+        "ParamFieldName": "/MayhemSyncConfig/WSSToken",
+        "IncludeInCommandLine": false,
+        "DefaultValue": "wss://sync.mayhem-gaming.com/",
+        "EnumValues": {}
+    },
+
+    {
+        "DisplayName": "Debug",
+        "Category": "Space Engineers:stadia_controller",
+        "Subcategory": "Mayhem Sync:linked_services:1",
+        "Description": "Enable verbose logging in the console for Mayhem Sync.",
+        "Keywords": "debug,sync,MayhemSync",
+        "FieldName": "Debug",
+        "InputType": "checkbox",
+        "IsFlagArgument": false,
+        "ParamFieldName": "/MayhemSyncConfig/Debug",
+        "IncludeInCommandLine": false,
+        "DefaultValue": "false",
+        "EnumValues": {
+            "True": "true",
+            "False": "false"
+        }
+    }  
 ]
