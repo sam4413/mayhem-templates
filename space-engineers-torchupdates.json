@@ -9,6 +9,25 @@
         "ForceDownloadPlatform": "Windows",
         "SkipOnFailure": true
     },
+
+    {
+      "UpdateStageName": "SteamCMD Download",
+      "UpdateSourcePlatform": 31,
+      "UpdateSource": 4,
+      "UpdateSourceArch": 3,
+      "UpdateSourceData": "298740",
+      "UpdateSourceArgs": "244850",
+      "UpdateSourceVersion": "{{Stream}}",
+      "UpdateSourceExtra": null,
+      "UpdateSourceTarget": null,
+      "UnzipUpdateSource": false,
+      "OverwriteExistingFiles": false,
+      "ForceDownloadPlatform": 1,
+      "UpdateSourceConditionSetting": null,
+      "UpdateSourceConditionValue": null,
+      "DeleteAfterExtract": false,
+      "OneShot": false
+    },
     {
         "UpdateStageName": "Create Config Directory",
         "UpdateSourcePlatform": "All",
@@ -83,33 +102,6 @@
         "UpdateSourceData": "https://cdn.mayhem-gaming.com/space-engineers/plugins/MayhemSync.zip",
         "UpdateSourceTarget": "{{$FullBaseDir}}Plugins",
         "UpdateSourceArgs": "MayhemSync.zip",
-        "OverwriteExistingFiles": true,
-        "SkipOnFailure": false
-    },
-    {
-        "UpdateStageName": "Mods Workaround 1",
-        "UpdateSourcePlatform": "All",
-        "UpdateSource": "CopyFilePath",
-        "UpdateSourceData": "{{$FullBaseDir}}DedicatedServer64/steamclient64.dll",
-        "UpdateSourceArgs": "{{$FullBaseDir}}steamclient64.dll",
-        "OverwriteExistingFiles": true,
-        "SkipOnFailure": false
-    },
-    {
-        "UpdateStageName": "Mods Workaround 2",
-        "UpdateSourcePlatform": "All",
-        "UpdateSource": "CopyFilePath",
-        "UpdateSourceData": "{{$FullBaseDir}}DedicatedServer64/tier0_s64.dll",
-        "UpdateSourceArgs": "{{$FullBaseDir}}tier0_s64.dll",
-        "OverwriteExistingFiles": true,
-        "SkipOnFailure": false
-    },
-    {
-        "UpdateStageName": "Mods Workaround 3",
-        "UpdateSourcePlatform": "All",
-        "UpdateSource": "CopyFilePath",
-        "UpdateSourceData": "{{$FullBaseDir}}DedicatedServer64/vstdlib_s64.dll",
-        "UpdateSourceArgs": "{{$FullBaseDir}}vstdlib_s64.dll",
         "OverwriteExistingFiles": true,
         "SkipOnFailure": false
     },
